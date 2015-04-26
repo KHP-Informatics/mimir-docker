@@ -1,0 +1,12 @@
+# start from a base ubuntu image
+FROM ubuntu
+MAINTAINER Cass Johnston <cassjohnston@gmail.com>
+
+# Create the mimir user and create a data directory volume in its home dir
+RUN groupadd -r mimir 
+RUN useradd -ms /bin/bash -g mimir mimir
+RUN mkdir /home/mimir/data
+RUN chown -R mimir:mimir /home/mimir
+VOLUME /home/mimir/data
+
+CMD /bin/true
