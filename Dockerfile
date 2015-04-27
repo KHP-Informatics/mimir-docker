@@ -22,7 +22,6 @@ RUN apt-get update \
     vim 
 
 
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN mkdir /opt/grails
 RUN cd /opt/grails \ 
  && curl -L "https://github.com/grails/grails-core/releases/download/v2.2.3/grails-2.2.3.zip"  >  grails-2.2.3.zip \
@@ -48,5 +47,5 @@ RUN cd /home/mimir/mimir-5.0.1 && ant
 
 EXPOSE 8080
 
-WORKDIR '/home/mimir/mimir-5.0.1/mimir-cloud'
+WORKDIR /home/mimir/mimir-5.0.1/mimir-cloud
 ENTRYPOINT ["grails", "prod", "run-app"]
